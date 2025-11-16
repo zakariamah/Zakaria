@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطب البديل - التداوي بالأعشاب</title>
+    <style>
+        /* تنسيقات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* رأس الصفحة */
+        header {
+            background: linear-gradient(to right, #2e7d32, #4caf50);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid #1b5e20;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* شريط التنقل */
+        nav {
+            background-color: #1b5e20;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #c8e6c9;
+        }
+        
+        /* الأقسام الرئيسية */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c8e6c9;
+        }
+        
+        h3 {
+            color: #388e3c;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* قسم الأعشاب */
+        .herbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .herb-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .herb-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .herb-img {
+            height: 200px;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        .herb-content {
+            padding: 20px;
+        }
+        
+        .herb-content h3 {
+            color: #2e7d32;
+        }
+        
+        .herb-uses {
+            margin-top: 10px;
+            padding-right: 15px;
+        }
+        
+        .herb-uses li {
+            margin-bottom: 8px;
+        }
+        
+        /* قسم الاستخدام */
+        .usage-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        /* قسم المحاذير */
+        .warnings {
+            background-color: #ffebee;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-right: 5px solid #f44336;
+        }
+        
+        .warnings ul {
+            padding-right: 20px;
+        }
+        
+        .warnings li {
+            margin-bottom: 10px;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        /* التجاوب مع مختلف الشاشات */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .herbs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container">
+            <h1>الطب البديل والتداوي بالأعشاب</h1>
+            <p>استكشف فوائد الطبيعة في العلاج والوقاية من الأمراض</p>
+        </div>
+    </header>
+    
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#importance">أهمية التداوي بالأعشاب</a></li>
+                <li><a href="#herbs">أنواع الأعشاب وفوائدها</a></li>
+                <li><a href="#usage">كيفية الاستخدام</a></li>
+                <li><a href="#warnings">محاذير هامة</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <!-- قسم أهمية التداوي بالأعشاب -->
+        <section id="importance">
+            <h2>أهمية التداوي بالأعشاب</h2>
+            <p>لطالما استخدمت الأعشاب الطبية عبر التاريخ كعلاج أساسي للعديد من الأمراض، حيث تمتلك خصائص علاجية فعالة تعود إلى مكوناتها الطبيعية الفريدة.</p>
+            
+            <h3>المميزات الرئيسية للعلاج بالأعشاب:</h3>
+            <ul>
+                <li><strong>مصدر طبيعي:</strong> الأعشاب مستخلصة من الطبيعة مما يجعلها أكثر أماناً مقارنة بالمركبات الكيميائية.</li>
+                <li><strong>قلة الآثار الجانبية:</strong> عادة ما تكون الآثار الجانبية للعلاج بالأعشاب أقل حدة من الأدوية التقليدية.</li>
+                <li><strong>تكلفة منخفضة:</strong> العلاج بالأعشاب غالباً ما يكون أقل تكلفة من العلاجات الدوائية التقليدية.</li>
+                <li><strong>علاج وقائي:</strong> العديد من الأعشاب تساعد في الوقاية من الأمراض وليس فقط علاجها.</li>
+                <li><strong>تنوع الاستخدام:</strong> يمكن استخدام الأعشاب بطرق متعددة مثل الشاي، المستحضرات، والزيوت.</li>
+            </ul>
+        </section>
+        
+        <!-- قسم أنواع الأعشاب وفوائدها -->
+        <section id="herbs">
+            <h2>أنواع الأعشاب وفوائدها</h2>
+            <p>هناك المئات من الأعشاب الطبية ذات الفوائد المتعددة، وإليك بعض أشهرها:</p>
+            
+            <div class="herbs-grid">
+                <!-- عشبة الزنجبيل -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة الزنجبيل</div>
+                    <div class="herb-content">
+                        <h3>الزنجبيل</h3>
+                        <p>نبات جذري معروف بخصائصه المضادة للالتهابات والغثيان.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تخفيف اضطرابات الجهاز الهضمي</li>
+                            <li>تقليل الغثيان والقيء</li>
+                            <li>مضاد للالتهابات</li>
+                            <li>تعزيز المناعة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- عشبة النعناع -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة النعناع</div>
+                    <div class="herb-content">
+                        <h3>النعناع</h3>
+                        <p>عشبة عطرية مفيدة للجهاز الهضمي والجهاز التنفسي.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تخفيف عسر الهضم</li>
+                            <li>تخفيف احتقان الجهاز التنفسي</li>
+                            <li>تسكين الصداع</li>
+                            <li>مهدئ طبيعي</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- عشبة البابونج -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة البابونج</div>
+                    <div class="herb-content">
+                        <h3>البابونج</h3>
+                        <p>زهرة صغيرة ذات خصائص مهدئة ومضادة للالتهابات.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تحسين جودة النوم</li>
+                            <li>تخفيف التوتر والقلق</li>
+                            <li>تسكين آلام المعدة</li>
+                            <li>علاج التهابات الجلد</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- عشبة الحلبة -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة الحلبة</div>
+                    <div class="herb-content">
+                        <h3>الحلبة</h3>
+                        <p>بذور تستخدم لعلاج العديد من المشكلات الصحية.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تنظيم سكر الدم</li>
+                            <li>تعزيز إدرار الحليب للمرضعات</li>
+                            <li>تحسين صحة الجهاز الهضمي</li>
+                            <li>تخفيف آلام الدورة الشهرية</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- عشبة إكليل الجبل -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة إكليل الجبل</div>
+                    <div class="herb-content">
+                        <h3>إكليل الجبل (الروزماري)</h3>
+                        <p>عشبة عطرية تعزز الذاكرة والدورة الدموية.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تحسين الذاكرة والتركيز</li>
+                            <li>تعزيز نمو الشعر</li>
+                            <li>مضاد للأكسدة</li>
+                            <li>تحسين الهضم</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- عشبة القرفة -->
+                <div class="herb-card">
+                    <div class="herb-img">صورة القرفة</div>
+                    <div class="herb-content">
+                        <h3>القرفة</h3>
+                        <p>لحاء شجرة استوائية مفيد لتنظيم السكر والكوليسترول.</p>
+                        <h4>الفوائد والاستخدامات:</h4>
+                        <ul class="herb-uses">
+                            <li>تنظيم مستويات السكر في الدم</li>
+                            <li>خفض الكوليسترول</li>
+                            <li>مضاد للفطريات والبكتيريا</li>
+                            <li>تحسين الدورة الدموية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- قسم كيفية الاستخدام -->
+        <section id="usage">
+            <h2>كيفية استخدام الأعشاب الطبية</h2>
+            <p>تختلف طرق استخدام الأعشاب الطبية حسب نوع العشبة والغرض من استخدامها. إليك أهم الطرق:</p>
+            
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>الشاي العشبي</h3>
+                    <p>نقع الأعشاب في الماء الساخن لمدة 5-10 دقائق. مثالي للأعشاب الورقية والزهور مثل النعناع والبابونج.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>المنقوع</h3>
+                    <p>نقع الأعشاب في الماء البارد لعدة ساعات. يستخدم للأعشاب التي تحتوي على مواد هلامية مثل بذور الحلبة.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>المغلي</h3>
+                    <p>غلي الأعشاب في الماء لمدة 10-15 دقيقة. مناسب للجذور واللحاء مثل الزنجبيل والقرفة.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>المستحضرات الموضعية</h3>
+                    <p>تحضير مراهم أو كريمات من الأعشاب لعلاج مشاكل الجلد مثل الالتهابات والجروح.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>الزيوت العطرية</h3>
+                    <p>استخلاص الزيوت من الأعشاب لاستخدامها في التدليك أو الاستنشاق للاستفادة من خصائصها.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>المكملات الغذائية</h3>
+                    <p>تناول الأعشاب في شكل كبسولات أو أقراص بعد استشارة الطبيب للجرعات المناسبة.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- قسم المحاذير -->
+        <section id="warnings">
+            <h2>محاذير هامة عند استخدام الأعشاب</h2>
+            <p>على الرغم من فوائد الأعشاب الطبية، إلا أنه يجب توخي الحذر عند استخدامها:</p>
+            
+            <div class="warnings">
+                <ul>
+                    <li>استشر الطبيب قبل استخدام أي عشبة طبية، خاصة إذا كنت تعاني من أمراض مزمنة أو تتناول أدوية أخرى.</li>
+                    <li>بعض الأعشاب قد تتفاعل مع الأدوية التقليدية وتؤثر على فعاليتها.</li>
+                    <li>الحوامل والمرضعات يجب أن يتوخين الحذر الشديد عند استخدام الأعشاب الطبية.</li>
+                    <li>الجرعات الزائدة من بعض الأعشاب قد تكون سامة حتى لو كانت طبيعية.</li>
+                    <li>اشترِ الأعشاب من مصادر موثوقة لتجنب التلوث أو الغش.</li>
+                    <li>انتبه للحساسية المحتملة تجاه بعض الأعشاب.</li>
+                    <li>لا تستخدم الأعشاب كبديل كامل للعلاج الطبي التقليدي في الحالات الخطيرة.</li>
+                </ul>
+            </div>
+            
+            <p>تذكر دائماً أن الاعتدال هو مفتاح الاستفادة من الأعشاب الطبية، وأن الاستخدام المفرط قد يؤدي إلى نتائج عكسية.</p>
+        </section>
+    </main>
+    
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <p>موقع الطب البديل - التداوي بالأعشاب</p>
+            <p>هذا الموقع لأغراض تعليمية فقط، يرجى استشارة الطبيب قبل استخدام أي عشبة طبية</p>
+            <p>© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+</body>
+</html>
